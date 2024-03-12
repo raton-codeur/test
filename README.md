@@ -1,3 +1,5 @@
+https://github.com/raton-codeur/test
+
 # libft
 
 * créer `libft.a` dans le répertoire de rendu avec :
@@ -41,8 +43,8 @@ cc -Wall -Wextra -Werror -fsanitize=address -g test/ft_printf/main.c -L. -lftpri
 ```
 # push_swap
 
-* placer le dossier `test` dans le répertoire de rendu et modifier 
-  
+* placer le dossier `test` dans le répertoire de rendu et modifier
+
 ## partie obligatoire
 * compiler avec :
 ```
@@ -60,4 +62,4 @@ make bonus
 le programme `checker` doit avoir été créé à la racine du projet
 * lancer les tests avec :
 ```
-``` 
+```
