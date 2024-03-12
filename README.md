@@ -1,6 +1,6 @@
 # libft
 
-* créer `libft.a` dans le working directory avec :
+* créer `libft.a` dans le répertoire de rendu avec :
 ```
 make fclean all
 ```
@@ -8,34 +8,56 @@ ou :
 ```
 make fclean all bonus
 ```
-* placer le dossier `tests` dans le working directory et modifier `libft/main.c` au besoin
+* placer le dossier `test` dans le répertoire de rendu et modifier `libft/main.c` au besoin
 * compiler avec :
 ```
-cc -Wall -Wextra -Werror -lbsd -fsanitize=address -g tests/libft/*.c -L. -lft
+cc -Wall -Wextra -Werror -lbsd -fsanitize=address -g test/libft/*.c -L. -lft
 ```
 
 # get_next_line
 
-* placer le dossier `tests` dans le working directory et modifier `get_next_line/main.c` au besoin
+* placer le dossier `test` dans le répertoire de rendu et modifier `get_next_line/main.c` au besoin
 * compiler la partie obligatoire avec :
 ```
-cc -Wall -Wextra -Werror -fsanitize=address -g get_next_line.c get_next_line_utils.c tests/get_next_line/*.c -D BUFFER_SIZE=4
+cc -Wall -Wextra -Werror -fsanitize=address -g get_next_line.c get_next_line_utils.c test/get_next_line/*.c -D BUFFER_SIZE=4
 ```
 (modifier BUFFER_SIZE)
 * compiler la partie bonus avec :
 ```
-cc -Wall -Wextra -Werror -fsanitize=address -g *_bonus.c tests/get_next_line/*.c -D BUFFER_SIZE=4
+cc -Wall -Wextra -Werror -fsanitize=address -g *_bonus.c test/get_next_line/*.c -D BUFFER_SIZE=4
 ```
 (modifier BUFFER_SIZE)
 
 # ft_printf
 
-* placer le dossier `tests` dans le working directory et modifier `ft_printf/main.c` au besoin
-* créer `libftprintf.a` dans le working directory avec :
+* placer le dossier `test` dans le répertoire de rendu et modifier `ft_printf/main.c` au besoin
+* créer `libftprintf.a` dans le répertoire de rendu avec :
 ```
 make fclean all
 ```
 * compiler avec :
 ```
-cc -Wall -Wextra -Werror -fsanitize=address -g tests/ft_printf/main.c -L. -lftprintf
+cc -Wall -Wextra -Werror -fsanitize=address -g test/ft_printf/main.c -L. -lftprintf
 ```
+# push_swap
+
+* placer le dossier `test` dans le répertoire de rendu et modifier `push_swap/main.c` au besoin
+  
+## partie obligatoire
+* compiler avec :
+```
+make fclean all
+```
+le programme push_swap doit avoir été créé à la racine du projet
+* lancer les tests avec :
+```
+```
+## partie bonus
+* compiler avec :
+```
+make bonus
+```
+le programme `checker` doit avoir été créé à la racine du projet
+* lancer les tests avec :
+```
+``` 
