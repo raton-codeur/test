@@ -1,49 +1,60 @@
 #!/usr/bin/zsh
 
-make re
+BLACK='\e[30m'
+RED='\e[31m'
+GREEN='\e[32m'
+YELLOW='\e[33m'
+BLUE='\e[34m'
+MAGENTA='\e[35m'
+CYAN='\e[36m'
+WHITE='\e[37m'
+RESET='\e[0m'
+CWD='./test/push_swap/'
+CHECKER=${CWD}checker_linux
 
-make fclean bonus
+make > /dev/null
 
+random_input ()
+{
+	seq -$1 $1 | sort -R | head -$1 | tr '\n' ' '
+}
 
-A='\033[0;31m'
+test ()
+{
+	((count_mean = 0))
+	((count_min = 999999))
+	((count_max = 0))
+	for i in {1..$3}
+	do
+		echo "test $i"
+		ARG=$(random_input $1)
+		count=$(./push_swap $ARG | wc -l)
+		((count_mean += $count))
+		if (( count < count_min ))
+		then
+			count_min=$count
+		elif (( count > count_max ))
+		then
+			count_max=$count
+		fi
+		result=$(./push_swap $ARG | $CHECKER $ARG)
+		if [ $result != "OK" ]
+		then
+			echo "${RED}KO$RESET"
+			echo "arguments : $ARG"
+			exit 0
+		fi
+	done
+	echo "nombre de coups min : $count_min"
+	if (( $count_max > $2 ))
+	then
+		echo "nombre de coups max : $RED$count_max$RESET"
+	else
+		echo "nombre de coups max : $count_max"
+	fi
+	echo "nombre de coups en moyenne : $(($count_mean / $3))"
+}
 
-for i in {0..10000}
-do
-	args=$(./random_input.sh 100)
-	./push_swap $args > f
-	cat f | wc -l
-	# if [ $? -ne 0 ]
-	# then
-	# 	printf "${A}KO ! :("
-	# fi
-done
+test 100 700 30
+test 500 5500 20
 
-
-
-
-
-# a :
-# 	cc -g srcs/*.c srcs/libft/libft.a -o push_swap
-
-# b :
-# 	cc -g -fsanitize=address srcs/*.c srcs/libft/libft.a -o push_swap
-
-# c : b
-# 	@echo -n "nombre de nombres : "
-# 	@read args; args=$$(./random_input.sh $$args); echo $$args; ./push_swap $$args; ./push_swap $$args | ./checker_linux $$args
-
-# d : b
-# 	args=$$(./random_input.sh $(args)); echo $$args; ./push_swap $$args; ./push_swap $$args | ./checker_linux $$args
-
-# args = 2 4 9 1 5 8 10 3 7 6
-# e :
-# 	./push_swap $(args); ./push_swap "$(args)" | ./checker_linux "$(args)"
-
-# f : b
-# 	./push_swap $(args)
-
-
-
-# bonus :
-# 	cc -g -fsanitize=address $abonus.c  $ainitialization.c $ainitialize_arguments.c $awrong_input*.c $aoperation_generic*.c  $aget_next*.c $alibft/libft.a -o checker
-# 	cat f | ./checker 3 2 1 0
