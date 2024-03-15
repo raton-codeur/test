@@ -54,7 +54,37 @@ test ()
 	fi
 	echo "nombre de coups en moyenne : $(($count_mean / $3))"
 }
+# test 100 700 30
+# test 500 5500 20
 
-test 100 700 30
-test 500 5500 20
+test_bonus ()
+{
+	make bonus > /dev/null
+
+	ARG=$(random_input 20)
+	result=$(./push_swap $ARG | ./checker $ARG)
+	echo $result
+}
+# test_bonus
+
+ici ()
+{
+	make bonus > /dev/null
+
+	ARG=$(random_input 5)
+	echo $ARG
+	./push_swap $ARG > ${CWD}sort_5_OK.txt
+}
+ici
+
+
+# test le res sur vide
+# test le res sur 2 elements tries et pas tries
+# test le res sur les permutations de 3 elements
+
+# test pas des nombres
+# test int overflow
+# test doublon
+
+
 
