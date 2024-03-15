@@ -60,9 +60,38 @@ test_basique ()
 # test_basique 500 5500 20
 
 
+# ./push_swap
+# ./push_swap 5
+# ./push_swap 3 5
+# ./push_swap 5 3
+
+test_3 ()
+{
+	ARG="$1 $2 $3"
+	count=$(./push_swap $ARG | wc -l)
+	result=$(./push_swap $ARG | $CHECKER $ARG)
+	if [ $result != "OK" ] || (( $count > 3 ))
+	then
+		echo "${RED}erreur$RESET"
+		echo "arguments : $ARG"
+		echo "result : \n$(./push_swap $ARG)"
+		exit 0
+	fi
+}
+test_3 1 2 3
+test_3 1 3 2
+test_3 2 1 3
+test_3 2 3 1
+test_3 3 1 2
+test_3 3 2 1
 
 
-
+# ./push_swap 5 1 7
+# ./push_swap "5 1 7"
+# ./push_swap a
+# ./push_swap 4 5a 1
+# ./push_swap 9999999999999999999999999999999999999999
+# ./push_swap 3 2 2 1
 
 
 
@@ -99,41 +128,3 @@ test_bonus ()
 	fi
 }
 # test_bonus 2
-
-
-
-
-
-
-# ./push_swap
-# ./push_swap 5
-# ./push_swap 3 5
-# ./push_swap 5 3
-
-test_3 ()
-{
-	ARG="$1 $2 $3"
-	count=$(./push_swap $ARG | wc -l)
-	result=$(./push_swap $ARG | $CHECKER $ARG)
-	if [ $result != "OK" ] || (( $count > 3 ))
-	then
-		echo "${RED}erreur$RESET"
-		echo "arguments : $ARG"
-		echo "result : \n$(./push_swap $ARG)"
-		exit 0
-	fi
-}
-test_3 1 2 3
-test_3 1 3 2
-test_3 2 1 3
-test_3 2 3 1
-test_3 3 1 2
-test_3 3 2 1
-
-
-# ./push_swap 5 1 7
-# ./push_swap "5 1 7"
-# ./push_swap a
-# ./push_swap 4 5a 1
-# ./push_swap 9999999999999999999999999999999999999999
-# ./push_swap 3 2 2 1
