@@ -12,6 +12,8 @@ RESET='\e[0m'
 CWD='./test/push_swap/'
 CHECKER=${CWD}checker_linux
 
+# modifier les flags pour rajouter -g -fsanitize=address
+
 make > /dev/null
 
 random_input ()
@@ -19,7 +21,7 @@ random_input ()
 	seq -$1 $1 | sort -R | head -$1 | tr '\n' ' '
 }
 
-test ()
+test_basique ()
 {
 	((count_mean = 0))
 	((count_min = 999999))
@@ -54,37 +56,84 @@ test ()
 	fi
 	echo "nombre de coups en moyenne : $(($count_mean / $3))"
 }
-# test 100 700 30
-# test 500 5500 20
+# test_basique 100 700 30
+# test_basique 500 5500 20
+
+
+
+
+
+
+
+
+
+
+create_test_bonus ()
+{
+	FOLDER=${CWD}test_bonus_$1/
+	mkdir $FOLDER
+	ARG=$(random_input $2)
+	echo -n $ARG > ${FOLDER}ARG.txt
+	./push_swap $ARG > ${FOLDER}output.txt
+}
+# create_test_bonus 2 5
 
 test_bonus ()
 {
 	make bonus > /dev/null
+	FOLDER=${CWD}test_bonus_${1}/
 
-	ARG=$(random_input 20)
-	result=$(./push_swap $ARG | ./checker $ARG)
-	echo $result
+	ARG=$(cat ${FOLDER}ARG.txt)
+	result=$(cat ${FOLDER}output.txt | ./checker $ARG)
+	result_expected=$(cat ${FOLDER}output.txt | $CHECKER $ARG) 2> /dev/null
+	if [ $result != $result_expected ]
+	then
+		echo "${RED}erreur${RESET}"
+		echo "ARG : $ARG"
+		echo "output : \n$(cat ${FOLDER}output.txt)"
+		echo "result : $result"
+		echo "expected : $result_expected"
+		exit 0
+	else
+		echo OK
+	fi
 }
-# test_bonus
+# test_bonus 2
 
-ici ()
+
+
+
+
+
+# ./push_swap
+# ./push_swap 5
+# ./push_swap 3 5
+# ./push_swap 5 3
+
+test_3 ()
 {
-	make bonus > /dev/null
-
-	ARG=$(random_input 5)
-	echo $ARG
-	./push_swap $ARG > ${CWD}sort_5_OK.txt
+	ARG="$1 $2 $3"
+	count=$(./push_swap $ARG | wc -l)
+	result=$(./push_swap $ARG | $CHECKER $ARG)
+	if [ $result != "OK" ] || (( $count > 3 ))
+	then
+		echo "${RED}erreur$RESET"
+		echo "arguments : $ARG"
+		echo "result : \n$(./push_swap $ARG)"
+		exit 0
+	fi
 }
-ici
+test_3 1 2 3
+test_3 1 3 2
+test_3 2 1 3
+test_3 2 3 1
+test_3 3 1 2
+test_3 3 2 1
 
 
-# test le res sur vide
-# test le res sur 2 elements tries et pas tries
-# test le res sur les permutations de 3 elements
-
-# test pas des nombres
-# test int overflow
-# test doublon
-
-
-
+# ./push_swap 5 1 7
+# ./push_swap "5 1 7"
+# ./push_swap a
+# ./push_swap 4 5a 1
+# ./push_swap 9999999999999999999999999999999999999999
+# ./push_swap 3 2 2 1
