@@ -43,7 +43,7 @@ cc -Wall -Wextra -Werror -fsanitize=address -g test/ft_printf/main.c -L. -lftpri
 ```
 # push_swap
 
-* placer le dossier `test` dans le répertoire de rendu et modifier
+* placer le dossier `test` dans le répertoire de rendu et modifier a.sh au besoin
 
 ## partie obligatoire
 * compiler avec :
@@ -53,6 +53,7 @@ make fclean all
 le programme `push_swap` doit avoir été créé à la racine du projet
 * lancer les tests avec :
 ```
+./test/push_swap/a.sh
 ```
 ## partie bonus
 * compiler avec :
@@ -62,4 +63,5 @@ make bonus
 le programme `checker` doit avoir été créé à la racine du projet
 * lancer les tests avec :
 ```
+./test/push_swap/a.sh
 ```
