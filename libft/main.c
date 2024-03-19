@@ -1,6 +1,6 @@
-// https://github.com/raton-codeur/tests/blob/main/README.md#libft
+// https://github.com/raton-codeur/test/blob/main/README.md#libft
 
-#include "libft.h"
+#include "../../libft.h"
 #include <stdio.h>
 #include <limits.h>
 #include <ctype.h>

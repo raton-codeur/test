@@ -1,4 +1,4 @@
-// https://github.com/raton-codeur/tests/blob/main/README.md#get_next_line
+// https://github.com/raton-codeur/test/blob/main/README.md#get_next_line
 
 #include "../../get_next_line.h"
 // #include "../../get_next_line_bonus.h"
@@ -19,7 +19,7 @@
 /* si ff est un fichier vide */
 // int main()
 // {
-// 	int fd = open("tests/get_next_line/ff", O_RDONLY);
+// 	int fd = open("test/get_next_line/ff", O_RDONLY);
 // 	char *line = get_next_line(fd);
 // 	assert(fd != -1 && line == NULL);
 // 	close(fd);
@@ -28,7 +28,7 @@
 /* si fff ne contient qu'une seule ligne non vide */
 // int main()
 // {
-// 	int fd = open("tests/get_next_line/fff", O_RDONLY);
+// 	int fd = open("test/get_next_line/fff", O_RDONLY);
 // 	char *line = get_next_line(fd);
 // 	printf("<%s>", line);
 // 	free(line);
@@ -41,7 +41,7 @@
 /* pour f quelconque */
 // int main()
 // {
-// 	int fd = open("tests/get_next_line/f", O_RDONLY);
+// 	int fd = open("test/get_next_line/f", O_RDONLY);
 // 	char *line = get_next_line(fd);
 // 	while (line != NULL)
 // 	{
@@ -73,9 +73,9 @@
 // int main()
 // {
 // 	char *line;
-// 	int fd_f = open("tests/get_next_line/f", O_RDONLY);
-// 	int fd_g = open("tests/get_next_line/g", O_RDONLY);
-// 	int fd_h = open("tests/get_next_line/h", O_RDONLY);
+// 	int fd_f = open("test/get_next_line/f", O_RDONLY);
+// 	int fd_g = open("test/get_next_line/g", O_RDONLY);
+// 	int fd_h = open("test/get_next_line/h", O_RDONLY);
 
 // 	line = get_next_line(fd_f);
 // 	printf("fd_f 1 : <%s>", line);

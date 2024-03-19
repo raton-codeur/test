@@ -1,4 +1,4 @@
-// https://github.com/raton-codeur/tests/blob/main/README.md#ft_printf
+// https://github.com/raton-codeur/test/blob/main/README.md#ft_printf
 
 #include "../../ft_printf.h"
 #include <stdio.h>
