@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-# https://github.com/raton-codeur/test/blob/main/README.md#get_next_line
+# https://github.com/raton-codeur/test/blob/main/README.md#push_swap
 
 BLACK='\e[30m'
 RED='\e[31m'
