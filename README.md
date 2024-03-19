@@ -44,7 +44,7 @@ cc -Wall -Wextra -Werror -fsanitize=address -g test/ft_printf/main.c -L. -lftpri
 # push_swap
 
 * placer le dossier `test` dans le répertoire de rendu
-* modifier les flags du `Makefile` pour ajouter :
+* flags à ajouter dans le `Makefile` :
 ```
 -g -fsanitize=address
 ```
