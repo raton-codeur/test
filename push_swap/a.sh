@@ -14,8 +14,6 @@ RESET='\e[0m'
 CWD='./test/push_swap/'
 CHECKER=${CWD}checker_linux
 
-# modifier les flags pour rajouter -g -fsanitize=address
-
 make > /dev/null
 
 random_input ()
