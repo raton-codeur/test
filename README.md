@@ -51,6 +51,7 @@ cc -Wall -Wextra -Werror -fsanitize=address -g test/ft_printf/main.c -L. -lftpri
 make fclean all
 ```
 le programme `push_swap` doit avoir été créé à la racine du projet
+* voir et modifier `a.sh` au besoin
 * lancer les tests avec :
 ```
 ./test/push_swap/a.sh
