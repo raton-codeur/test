@@ -1,5 +1,7 @@
 #!/usr/bin/zsh
 
+# https://github.com/raton-codeur/test/blob/main/README.md#get_next_line
+
 BLACK='\e[30m'
 RED='\e[31m'
 GREEN='\e[32m'
