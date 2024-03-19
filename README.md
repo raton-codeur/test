@@ -45,12 +45,20 @@ cc -Wall -Wextra -Werror -fsanitize=address -g test/ft_printf/main.c -L. -lftpri
 
 * placer le dossier `test` dans le répertoire de rendu
 * modifier les flags du `Makefile` pour ajouter :
-```-g -fsanitize=address```
+```
+-g -fsanitize=address
+```
 * compiler la partie obligatoire avec :
-```make fclean all```
+```
+make fclean all
+```
 le programme `push_swap` doit avoir été créé à la racine du projet
 * compiler la partie bonus avec :
-```make bonus```
+```
+make bonus
+```
 le programme `checker` doit avoir été créé à la racine du projet
 * modifier `a.sh` au besoin et lancer les tests avec :
-```./test/push_swap/a.sh```
+```
+./test/push_swap/a.sh
+```
