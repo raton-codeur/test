@@ -1,4 +1,4 @@
-https://github.com/raton-codeur/test#push_swap
+https://github.com/raton-codeur/test
 
 # libft
 
