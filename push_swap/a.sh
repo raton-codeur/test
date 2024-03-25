@@ -132,7 +132,7 @@ test_permutation ()
 	done
 }
 # test_permutation 3 2
-test_permutation 5 15
+test_permutation 5 12
 
 
 
