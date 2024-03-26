@@ -149,11 +149,14 @@ test_permutation ()
 
 # ./push_swap
 # ./push_swap ""
+# ./push_swap "" ""
+# ./push_swap " "
 # ./push_swap 5
 # ./push_swap 3 5
 # ./push_swap 5 3
 # ./push_swap "5 1 7"
 # ./push_swap a
+# ./push_swap 4 ""
 # ./push_swap 4 5a 1
 # ./push_swap 4 1 5a
 # ./push_swap 999999999999999999999999999999999999999999999999 6
@@ -265,6 +268,7 @@ test_bonus_manual ()
 # ./checker "1"
 # verifier le comportement avec des instructions correctes et pas correctes -> Error
 # verifier fichier vide -> KO / OK
+# verifier le comportement avec juste pa
 
 # erreur
 # ./checker a
