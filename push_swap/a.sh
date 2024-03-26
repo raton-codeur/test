@@ -88,8 +88,8 @@ factorial ()
 	echo $result
 }
 
-# premier argument : nombre de nombres
-# deuxieme argument : la combien-ieme permutation on veut
+# premier argument : n, un nombre de nombres
+# deuxieme argument : i, l'indice de la permutation que l'on veut afficher
 permute ()
 {
 	echo $(${CWD}/permute.py $1 $2)
@@ -101,7 +101,7 @@ test_permutation ()
 {
 	((count_min = 999999))
 	((count_max = 0))
-	for i in {1..$(factorial $1)}
+	for i in {0..$(($(factorial $1) - 1))}
 	do
 		ARG=$(permute $1 $i)
 		count=$(./push_swap $ARG | wc -l)
@@ -121,18 +121,21 @@ test_permutation ()
 		fi
 		if [ $count_min -ne 0 ]
 		then
-			echo "erreur sur le nombre de coups min pour ARG :\n$ARG"
+			echo "erreur sur le nombre de coups min pour ARG : $ARG"
+			echo "nombre de coups : $count"
 			exit 0
 		fi
 		if [ $count_max -gt $2 ]
 		then
-			echo "erreur sur le nombre de coups max pour ARG :\n$ARG"
+			echo "erreur sur le nombre de coups max pour ARG : $ARG"
+			echo "nombre de coups : $count"
 			exit 0
 		fi
+		# echo "permutation $i en $count coups"
 	done
 }
 # test_permutation 3 2
-test_permutation 5 12
+# test_permutation 5 12
 
 
 
