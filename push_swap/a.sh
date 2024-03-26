@@ -148,15 +148,18 @@ test_permutation ()
 
 
 # ./push_swap
+# ./push_swap ""
 # ./push_swap 5
 # ./push_swap 3 5
 # ./push_swap 5 3
-# ./push_swap 5 1 7
 # ./push_swap "5 1 7"
 # ./push_swap a
 # ./push_swap 4 5a 1
+# ./push_swap 4 1 5a
 # ./push_swap 999999999999999999999999999999999999999999999999 6
 # ./push_swap 3 2 2 1
+# ./push_swap 3 2 1 2
+# ./push_swap 2 3 1 2
 # ./push_swap -9 -2 0 2 3 4 6 8 9 23 50 886
 
 
@@ -172,6 +175,10 @@ test_permutation ()
 
 
 
+# premier argument : numero du test
+# deuxieme argument : nombre d'arguments pour le programme
+# crée un dossier pour le test avec des arguments aléatoires et une output initialisée avec push_swap
+# si push_swap est correct, l'output est initialisée avec un algorithme de tri correct
 create_test_bonus ()
 {
 	FOLDER=${CWD}test_bonus_$1/
@@ -180,8 +187,16 @@ create_test_bonus ()
 	echo -n $ARG > ${FOLDER}ARG.txt
 	./push_swap $ARG > ${FOLDER}output.txt
 }
-# create_test_bonus 2 5
+# create_test_bonus 2 3
 
+
+
+
+
+
+
+
+# argument : numero du test
 test_bonus ()
 {
 	make bonus > /dev/null
@@ -190,16 +205,72 @@ test_bonus ()
 	ARG=$(cat ${FOLDER}ARG.txt)
 	result=$(cat ${FOLDER}output.txt | ./checker $ARG)
 	result_expected=$(cat ${FOLDER}output.txt | $CHECKER $ARG) 2> /dev/null
+
+	echo "ARG : $ARG"
+	echo "resultat : $result"
+	echo "resultat avec le vrai checker : $result_expected"
+
 	if [ $result != $result_expected ]
 	then
 		echo "${RED}erreur${RESET}"
-		echo "ARG : $ARG"
 		echo "output : \n$(cat ${FOLDER}output.txt)"
-		echo "result : $result"
-		echo "expected : $result_expected"
 		exit 0
-	else
-		echo OK
 	fi
 }
 # test_bonus 2
+
+
+
+
+
+
+
+# argument : numero du test
+test_bonus_manual ()
+{
+	make bonus > /dev/null
+	FOLDER=${CWD}test_bonus_${1}/
+	ARG=$(cat ${FOLDER}ARG.txt)
+
+	echo "ARG : $ARG"
+	echo "program :"
+	> ${FOLDER}output.txt
+
+	result=$(cat ${FOLDER}output.txt | ./checker $ARG)
+	result_expected=$(cat ${FOLDER}output.txt | $CHECKER $ARG) 2> /dev/null
+
+	echo "resultat : $result"
+	echo "resultat avec le vrai checker : $result_expected"
+
+	if [ $result != $result_expected ]
+	then
+		echo "${RED}erreur${RESET}"
+		exit 0
+	fi
+}
+# test_bonus_manual 2
+
+
+
+
+
+# autres tests manuels
+
+# doit sarreter
+# ./checker
+# ./checker ""
+
+# doit fonctionner
+# ./checker 1
+# ./checker "1"
+# verifier le comportement avec des instructions correctes et pas correctes -> Error
+# verifier fichier vide -> KO / OK
+
+# erreur
+# ./checker a
+# ./checker 4 5q 1
+# ./checker 4 1 5t
+# ./checker  999999999999999999999999999999999999999999999999 6
+# ./checker 3 2 2 1
+# ./checker 3 2 1 2
+# ./checker 2 3 1 2
