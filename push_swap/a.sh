@@ -61,8 +61,8 @@ test_basique ()
 	fi
 	echo "nombre de coups en moyenne : $(($count_mean / $3))"
 }
-# test_basique 100 700 30
-# test_basique 500 5500 20
+test_basique 100 700 30
+test_basique 500 5500 20
 
 
 
