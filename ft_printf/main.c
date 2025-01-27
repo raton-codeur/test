@@ -4,16 +4,20 @@
 #include <stdio.h>
 #include <assert.h>
 
+/*
+cc -Wall -Wextra -Werror -fsanitize=address -g test/ft_printf/main.c -L. -lftprintf && ./a.out
+*/
+
 /* base */
-// int main ()
-// {
-// 	char *s = "s;dlfkj sliugkjdn soi";
-// 	printf("result :\n");
-// 	int result = ft_printf(s);
-// 	printf("\nexpected :\n");
-// 	int expected = printf("%s", s);
-// 	assert(result == expected);
-// }
+int main ()
+{
+	char *s = "s;dlfkj sliugkjdn soi";
+	printf("result :\n");
+	int result = ft_printf(s);
+	printf("\nexpected :\n");
+	int expected = printf("%s", s);
+	assert(result == expected);
+}
 
 /* char */
 // int	main()
