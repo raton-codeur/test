@@ -5,6 +5,7 @@
 #include <assert.h>
 
 /*
+make
 cc -Wall -Wextra -Werror -fsanitize=address -g test/ft_printf/main.c -L. -lftprintf && ./a.out
 */
 
@@ -18,6 +19,17 @@ int main ()
 	int expected = printf("%s", s);
 	assert(result == expected);
 }
+
+/* plusieurs arg */
+// int main ()
+// {
+// 	char *s = "test ff %d %% %s test";
+// 	printf("result :\n");
+// 	int result = ft_printf(s, 560, "salut");
+// 	printf("\nexpected :\n");
+// 	int expected = printf(s, 560, "salut");
+// 	assert(result == expected);
+// }
 
 /* char */
 // int	main()
