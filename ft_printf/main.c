@@ -127,7 +127,7 @@
 // 	assert(result == expected);
 
 // 	n = 2147483647;
-// 	printf("result :\n");
+// 	printf("\n\nresult :\n");
 // 	result = ft_printf(s, n);
 // 	printf("\nexpected :\n");
 // 	expected = printf(s, n);
