@@ -61,6 +61,20 @@ int main ()
 // 	assert(result == expected);
 // }
 
+/* 2 strings */
+// int main()
+// {
+// 	char *s = "%s %s";
+// 	char *ss = "salut";
+
+// 	printf("result :\n");
+// 	int result = ft_printf(s, ss, ss);
+// 	printf("\nexpected :\n");
+// 	int expected = printf(s, ss, ss);
+
+// 	assert(result == expected);
+// }
+
 /* string null */
 // int main()
 // {
