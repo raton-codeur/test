@@ -17,7 +17,14 @@ int main ()
 }
 ```
 
+compilation :
+
+```
+cc -Wall -Wextra -Werror -fsanitize=address -g3 main.c -L. -lftprintf && ./a.out
+```
+
 à vérifier :
+
 - chaine simple
 - plusieurs arguments
 - %c 
@@ -36,11 +43,6 @@ int main ()
 - pas d'argument
 - erreur sur le nombre de parametres
 
-compilation :
-
-```
-cc -Wall -Wextra -Werror -fsanitize=address -g3 main.c -L. -lftprintf
-```
 
 # libft
 
