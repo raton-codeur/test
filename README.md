@@ -11,8 +11,10 @@ main.c :
 
 int main ()
 {
-	int result = ft_printf("test\n");
-	int expected = printf("test\n");
+	int result =
+	ft_printf("test\n");
+	int expected =
+	   printf("test\n");
 	assert(result == expected);
 }
 ```
@@ -30,6 +32,7 @@ cc -Wall -Wextra -Werror -fsanitize=address -g3 main.c -L. -lftprintf && ./a.out
 - %c 
 - %s
   - chaine nulle
+  - chaine vide
 - %p
   - pointeur nul
 - %d et %i
