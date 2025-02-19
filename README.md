@@ -1,5 +1,47 @@
 https://github.com/raton-codeur/test
 
+# ft_printf simple
+
+main.c :
+
+```
+#include <stdio.h>
+#include <assert.h>
+#include "ft_printf.h"
+
+int main ()
+{
+	int result = ft_printf("test\n");
+	int expected = printf("test\n");
+	assert(result == expected);
+}
+```
+
+à vérifier :
+- chaine simple
+- plusieurs arguments
+- %c 
+- %s
+  - chaine nulle
+- %p
+  - pointeur nul
+- %d et %i
+  - int min et max
+- %u
+  - 4294967296
+- %x et %X
+- %%
+- % + lettre autre
+- argument null
+- pas d'argument
+- erreur sur le nombre de parametres
+
+compilation :
+
+```
+cc -Wall -Wextra -Werror -fsanitize=address -g3 main.c -L. -lftprintf
+```
+
 # libft
 
 * créer `libft.a` dans le répertoire de rendu avec :
