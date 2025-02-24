@@ -1,5 +1,32 @@
 https://github.com/raton-codeur/test
 
+# CPP 02
+
+```
+static void printBits(int n)
+{
+    for (int i = 31; i >= 0; i--)
+	{
+        std::cout << ((n >> i) & 1);
+        if (i % 4 == 0)
+			std::cout << " ";
+		if (i % 8 == 0)
+			std::cout << std::endl;
+		if (i == 8)
+			std::cout << "---------" << std::endl;
+    }
+}
+
+int main()
+{
+	Fixed e(2);
+	printBits(e.getRawBits());
+	Fixed f(2.5f);
+	printBits(f.getRawBits());
+}
+
+```
+
 # ft_printf simple
 
 main.c :
