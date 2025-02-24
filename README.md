@@ -27,6 +27,20 @@ int main()
 
 ```
 
+pourquoi arrondir ?
+exemple :
+on a 2 bits pour la partie fractionnaire et qu'on veut représenter 1.9
+
+(1 << 2) = 2 ^ 2 = 4
+
+1.9 * 4 = 7.6
+
+si on arrondi pas, on va coder le nombre par _rawValue = 7 ---->  1|11
+on a : 1,11 en base 2 = 1.75
+
+et si on arrondi, on va coder le nombre par _rawValue = 8  ----> 10|00
+on a : 10,0 en base 2 = 2
+
 # ft_printf simple
 
 main.c :
