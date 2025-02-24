@@ -2,6 +2,8 @@ https://github.com/raton-codeur/test
 
 # CPP 02
 
+## pour ex01
+
 ```
 static void printBits(int n)
 {
@@ -25,9 +27,8 @@ int main()
 	printBits(f.getRawBits());
 }
 
-```
+### pourquoi arrondir ?
 
-pourquoi arrondir ?
 exemple :
 on a 2 bits pour la partie fractionnaire et qu'on veut représenter 1.9
 
@@ -40,6 +41,51 @@ on a : 1,11 en base 2 = 1.75
 
 et si on arrondi, on va coder le nombre par _rawValue = 8  ----> 10|00
 on a : 10,0 en base 2 = 2
+
+## main.c pour le 03
+
+```
+#include "Point.hpp"
+
+#define RESET "\033[0m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+
+static void testPoint(const Point& a, const Point& b, const Point& c, const Point& p)
+{
+	if (bsp(a, b, c, p))
+		std::cout << GREEN << p << " is strictly inside ABC" << RESET << std::endl;
+	else
+		std::cout << RED << p << " is outside ABC (or on its boundary)" << RESET << std::endl;
+}
+
+int main()
+{
+	const Point a(-1.24, 0.52);
+	const Point b(4.7, 3.26);
+	const Point c(1.28, -3.04);
+
+	std::cout << "A = " << a << std::endl;
+	std::cout << "B = " << b << std::endl;
+	std::cout << "C = " << c << std::endl;
+
+	/* inside */
+	testPoint(a, b, c, Point(2.5, 1.56));
+	testPoint(a, b, c, Point(1.58, -2.12));
+	testPoint(a, b, c, Point(-0.18, 0.7));
+
+	/* outside */
+	testPoint(a, b, c, Point(3, 7));
+	testPoint(a, b, c, Point(5.001, -0.26));
+	testPoint(a, b, c, Point(-0.22, -1.64));
+
+	/* boundary */
+	testPoint(a, b, c, b);
+	std::cout << "simpler ABC : ";
+	testPoint(Point(0, 0), Point(1, 0), Point(1, 1), Point(0.5, 0.5));
+}
+
+```
 
 # ft_printf simple
 
