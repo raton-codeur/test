@@ -26,6 +26,7 @@ int main()
 	Fixed f(2.5f);
 	printBits(f.getRawBits());
 }
+```
 
 ### pourquoi arrondir ?
 
